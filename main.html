@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liver Disorder Prediction</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h2>Liver Disorder Prediction</h2>
+        <form action="{{ url_for('predict') }}" method="post">
+            <label>Age</label>
+            <select name="age" required>
+                {% for i in range(1, 101) %}
+                <option value="{{ i }}">{{ i }}</option>
+                {% endfor %}
+            </select><br>
+
+            <label>Total Bilirubin</label>
+            <select name="total_bilirubin" required>
+                {% for i in range(1, 21) %}
+                <option value="{{ i }}">{{ i }}</option>
+                {% endfor %}
+            </select><br>
+
+            <label>Direct Bilirubin</label>
+            <select name="direct_bilirubin" required>
+                {% for i in range(1, 11) %}
+                <option value="{{ i }}">{{ i }}</option>
+                {% endfor %}
+            </select><br>
+
+            <label>Alkaline Phosphotase</label>
+            <select name="alkaline_phosphotase" required>
+                {% for i in range(50, 400, 10) %}
+                <option value="{{ i }}">{{ i }}</option>
+                {% endfor %}
+            </select><br>
+
+            <label>SGPT</label>
+            <select name="sgpt" required>
+                {% for i in range(10, 500, 10) %}
+                <option value="{{ i }}">{{ i }}</option>
+                {% endfor %}
+            </select><br>
+
+            <label>SGOT</label>
+            <select name="sgot" required>
+                {% for i in range(10, 500, 10) %}
+                <option value="{{ i }}">{{ i }}</option>
+                {% endfor %}
+            </select><br>
+
+            <label>Total Proteins</label>
+            <select name="total_proteins" required>
+                {% for i in range(2, 10) %}
+                <option value="{{ i }}">{{ i }}</option>
+                {% endfor %}
+            </select><br>
+
+            <label>Albumin</label>
+            <select name="albumin" required>
+                {% for i in range(2, 6) %}
+                <option value="{{ i }}">{{ i }}</option>
+                {% endfor %}
+            </select><br>
+
+            <label>Albumin/Globulin Ratio</label>
+            <select name="albumin_globulin_ratio" required>
+                {% for i in range(1, 5) %}
+                <option value="{{ i }}">{{ i }}</option>
+                {% endfor %}
+            </select><br>
+
+            <label>Gender</label>
+            <select name="gender" required>
+                <option value="0">Female</option>
+                <option value="1">Male</option>
+            </select><br>
+
+            <button type="submit">Predict</button>
+        </form>
+    </div>
+</body>
+</html>
